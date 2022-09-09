@@ -9,6 +9,7 @@ public class MiddleCards : MonoBehaviour
 
     [SerializeField] GameObject middleCards;
     [SerializeField] bool isMiddleShowing = false;
+    
 
 
     // Start is called before the first frame update
@@ -21,27 +22,43 @@ public class MiddleCards : MonoBehaviour
     void Update()
     {
         ChangeCard();
-        Invoke("MiddleCardsAnim", 1.8f);
+        
+       Invoke ("MiddleCardsAnim", 2f);
 
     }
 
+
+  
+    
     void ChangeCard()
-    {
-        if (isMiddleShowing == false)
+
         {
-            int n = Random.Range(0, materials.Length);
-            GetComponent<MeshRenderer>().material = materials[n];
+            if (isMiddleShowing == false)
+            {
+                int n = Random.Range(0, materials.Length);
+                GetComponent<MeshRenderer>().material = materials[n];
+                Invoke("ChangeCard", 1f);
+                middleCards.GetComponent<Animator>().Play("MiddleCards");
 
-            //Instantiate(objectsToInstantiate[n], pos.position, objectsToInstantiate[n].transform.rotation);
+
+            }
+            isMiddleShowing = true;
+
         }
-        isMiddleShowing = true;
-
-    }
-
     void MiddleCardsAnim()
     {
-
-        middleCards.GetComponent<Animator>().Play("MiddleCards");
+      
+        
+            middleCards.GetComponent<Animator>().Play("MiddleCards");
+            
+        
 
     }
+
+
+
 }
+
+    
+
+

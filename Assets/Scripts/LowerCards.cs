@@ -21,22 +21,28 @@ public class LowerCards : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       StartCoroutine(simpleCards.SimpleCardSpawne());
-       Invoke("ChangeCard", 1.3f);
+       
+        
+            StartCoroutine(simpleCards.SimpleCardSpawne());
+            Invoke("ChangeCard", 1.3f);
+        
     }
 
     void ChangeCard()
     {
-        if (isLowerShowing == false)
-        {
-            int n = Random.Range(0, materials.Length);
-            GetComponent<MeshRenderer>().material = materials[n];
-            cardAnim01.GetComponent<Animator>().Play("LowerCard01");
-            cardAnim02.GetComponent<Animator>().Play("LowerCard02");
+          if (isLowerShowing == false)
 
-            //Instantiate(objectsToInstantiate[n], pos.position, objectsToInstantiate[n].transform.rotation);
+          {
+                int n = Random.Range(0, materials.Length);
+                GetComponent<MeshRenderer>().material = materials[n];
+                cardAnim01.GetComponent<Animator>().Play("LowerCard01");
+                cardAnim02.GetComponent<Animator>().Play("LowerCard02");
+
+                //Instantiate(objectsToInstantiate[n], pos.position, objectsToInstantiate[n].transform.rotation);
+          }
+
+            isLowerShowing = true;
         }
-        isLowerShowing = true;
 
-    }
+    
 }

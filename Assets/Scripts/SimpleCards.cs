@@ -12,23 +12,41 @@ public class SimpleCards : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+         StartCoroutine(SimpleCardSpawne());
     }
+
+    
+        
 
     public IEnumerator SimpleCardSpawne()
     {
+
         if (isSpawning == false)
         {
+
             simpleCard01.GetComponent<Animator>().Play("SimpleCard01");
-            yield return new WaitForSeconds(.5f);
+
+          yield return  new WaitForSeconds(.5f);
+
             simpleCard02.GetComponent<Animator>().Play("SimpleCard02");
+
+            
         }
+
+
+
+
+
+        
+
         isSpawning = true;
+    
+        
     }
 }
